@@ -58,6 +58,7 @@ export const AddList: React.FC<AddListProps> = ({ clickHandler }) => {
       name: listName,
       mark: selectedMark,
       id: uuidv4().toString(),
+      todos: [],
     };
     if (addList) {
       addList(list);
