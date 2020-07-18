@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Lists.scss";
 
 import { List } from "components/list";
 import { Mark } from "components/mark";
 import { Button } from "components/button";
 import { IList } from "components/list/List";
+import { AppContext } from "../app/App";
 
 interface ListsProps {
   lists: IList[];
 }
 
 export const Lists: React.FC<ListsProps> = ({ lists }) => {
+  const { removeList } = useContext(AppContext);
+
   return (
     <nav className="lists">
       <div className="lists__wrapper">
@@ -27,7 +30,9 @@ export const Lists: React.FC<ListsProps> = ({ lists }) => {
                       <Button
                         icon
                         onClick={() => {
-                          console.log("Click");
+                          if (removeList) {
+                            removeList(list.id!);
+                          }
                         }}
                       >
                         <i

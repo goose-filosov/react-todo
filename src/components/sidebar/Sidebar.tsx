@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
 import "./Sidebar.scss";
 import { Lists } from "components/lists";
 import { List } from "components/list";
 import { Button } from "components/button";
 import { AddList } from "components/add-list";
+import { AppContext } from "components/app/App";
 
 export const Sidebar = () => {
   const [modal, setModal] = useState(false);
+  const { lists } = useContext(AppContext);
 
   return (
     <div className="sidebar">
@@ -20,7 +22,7 @@ export const Sidebar = () => {
           />
         </div>
         <div className="sidebar__body">
-          <Lists lists={} />
+          <Lists lists={lists!} />
         </div>
         <div className="sidebar__footer">
           <Button onClick={() => setModal(!modal)}>
