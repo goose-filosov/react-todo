@@ -21,7 +21,7 @@ export const AddTodo: React.FC<AddTodoProps> = ({ clickHandler, lid }) => {
         title,
         id: uuidv4(),
         completed: false,
-        folderId: lid,
+        listId: lid,
       };
       if (addTodo) {
         addTodo(todo, lid);
