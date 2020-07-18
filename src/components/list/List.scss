@@ -1,0 +1,46 @@
+.list {
+  display: flex;
+  align-items: center;
+
+  padding: 10px 12px;
+
+  color: #2c2c2c;
+  border-radius: 5px;
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: all 0.15s ease-in-out;
+  &_active {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  }
+  &__mark {
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+  }
+  &__title {
+    margin-left: 10px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  &__actions {
+    margin-left: auto;
+    opacity: 0;
+    transition: all 0.15s ease-in-out;
+    display: inline-flex;
+  }
+}
+
+.list:hover {
+  // Todo
+  // Сделать выделение при наведении
+  .list__actions {
+    opacity: 1;
+  }
+}
