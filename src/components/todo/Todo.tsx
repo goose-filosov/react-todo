@@ -30,7 +30,7 @@ export const Todo: React.FC<TodoProps> = ({
         <div className="todo__title">{title}</div>
         <div className="todo__actions">
           <Button icon onClick={onDeleted}>
-            <i className="material-icons">close</i>
+            <i style={{ fontSize: "22px" }} className="fas fa-times" />
           </Button>
         </div>
       </div>
