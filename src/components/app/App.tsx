@@ -6,6 +6,14 @@ import { Sidebar } from "components/sidebar";
 import { Main } from "components/main";
 import { IList } from "components/list/List";
 import { ITodo } from "../todo/Todo";
+import {
+  addListToDB,
+  addTodoToDB,
+  fetchLists,
+  removeListForDB,
+  removeTodoForDB,
+  toggleTodoCompleted,
+} from "api";
 
 interface ContextProps {
   lists: IList[];
@@ -22,20 +30,15 @@ export const AppContext = createContext<Partial<ContextProps>>({});
 export const App = () => {
   const [lists, setLists] = useState<IList[]>([]);
   const [activeList, setActiveList] = useState<IList>({
-    name: "UI",
-    id: "asdoj120nal",
-    mark: "#fae",
+    name: "",
+    id: "",
+    mark: "",
   });
 
   const location = useLocation();
 
   useEffect(() => {
-    const lists: IList[] = [
-      { name: "UI", id: "asdoj120nal", mark: "#fae", todos: [] },
-      { name: "UX", id: "asdoj120nal123", mark: "#fea", todos: [] },
-      { name: "Frontend", id: "asdoj120nalzxc", mark: "#aea", todos: [] },
-    ];
-    setLists(lists);
+    fetchLists(setLists);
   }, []);
 
   useEffect(() => {
@@ -48,11 +51,13 @@ export const App = () => {
 
   const addList = (list: IList) => {
     setLists([...lists, list]);
+    addListToDB(list);
   };
 
   const removeList = (lid: string) => {
     const newLists = lists.filter((list) => list.id !== lid);
     setLists(newLists);
+    removeListForDB(lid);
   };
 
   const addTodo = (todo: ITodo, lid: string) => {
@@ -64,6 +69,7 @@ export const App = () => {
       return list;
     });
     setLists(newLists);
+    addTodoToDB(todo);
   };
 
   const removeTodo = (tid: string, lid: string) => {
@@ -74,6 +80,7 @@ export const App = () => {
       return list;
     });
     setLists(newLists);
+    removeTodoForDB(tid);
   };
 
   const toggleTodoComplete = (tid: string, lid: string, completed: boolean) => {
@@ -89,6 +96,7 @@ export const App = () => {
       return list;
     });
     setLists(newList);
+    toggleTodoCompleted(tid, completed);
   };
 
   return (
