@@ -1,0 +1,49 @@
+.btn {
+  background: none;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  padding: 0.375rem 0.75rem;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  font-weight: 400;
+  line-height: 1.5;
+  font-size: 14px;
+  color: #212529;
+  text-decoration: none;
+  i {
+    padding-right: 5px;
+  }
+}
+
+.btn_primary {
+  background-color: #eeaeca;
+  color: #fff;
+}
+.btn_secondary {
+  background-color: #94bbe9;
+  color: #fff;
+}
+.btn_success {
+  background-color: #4dd599;
+  color: #fff;
+}
+
+.btn_full {
+  width: 100%;
+}
+
+.btn_icon {
+  padding: 0;
+  color: #e3e3e3;
+  i {
+    padding-right: 0;
+  }
+  &:hover {
+    color: tomato;
+  }
+}
