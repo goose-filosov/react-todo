@@ -1,0 +1,50 @@
+.add-list {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #fff;
+  max-width: 235px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  &__wrapper {
+    padding: 18px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  &__close {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 50%;
+    background-color: #5c5c5c;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  &__palette {
+    margin-top: 10px;
+  }
+  &__actions {
+    margin-top: 10px;
+  }
+}
+
+.palette {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -3px;
+  }
+  &__item {
+    margin: 0 3px;
+  }
+}
