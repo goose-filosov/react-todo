@@ -1,6 +1,7 @@
 .sidebar {
-  flex: 1 1 280px;
+  flex: 1;
   background-color: #f4f6f8;
+  max-width: 220px;
   &__wrapper {
     padding: 60px 20px 0;
   }
