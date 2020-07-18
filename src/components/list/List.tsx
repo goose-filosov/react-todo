@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, NavLinkProps } from "react-router-dom";
 
 import "./List.scss";
+import { ITodo } from "components/todo/Todo";
 
 export interface ListProps extends NavLinkProps {
   mark: React.ReactNode | JSX.Element;
@@ -11,10 +12,11 @@ export interface ListProps extends NavLinkProps {
 }
 
 export interface IList {
-  mark: React.ReactNode | JSX.Element;
+  mark: string;
   name: string;
   action?: React.ReactNode | JSX.Element;
   id?: string;
+  todos?: ITodo[];
 }
 
 export const List: React.FC<ListProps> = ({ to, mark, name, action }) => {
