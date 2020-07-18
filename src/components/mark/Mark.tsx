@@ -1,14 +1,14 @@
 import React from "react";
 import "./Mark.scss";
 
-export interface IMarkProps {
+export interface MarkProps {
   size?: string;
   bgColor?: string;
   active?: boolean;
   onClick?: () => void;
 }
 
-export const Mark: React.FC<IMarkProps> = ({
+export const Mark: React.FC<MarkProps> = ({
   size,
   bgColor,
   active,
