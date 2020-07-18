@@ -7,6 +7,7 @@ import { Button } from "components/button";
 import { Mark } from "components/mark";
 import { Field } from "components/field";
 import { MarkProps } from "components/mark/Mark";
+import { AppContext } from "../app/App";
 
 const marks = [
   {
@@ -50,14 +51,18 @@ export interface AddListProps {
 export const AddList: React.FC<AddListProps> = ({ clickHandler }) => {
   const [listName, setListName] = useState<string>("");
   const [selectedMark, setSelectedMark] = useState<string>("#c9d1d3");
+  const { addList } = useContext(AppContext);
 
   const createNewFolder = () => {
     const list = {
       name: listName,
       mark: selectedMark,
       id: uuidv4().toString(),
+      todos: [],
     };
-    console.log(list);
+    if (addList) {
+      addList(list);
+    }
     clickHandler();
   };
 

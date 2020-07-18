@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { v4 as uuidv4 } from "uuid";
 
 import "./AddTodo.scss";
 import { Button } from "components/button";
 import { Field } from "components/field";
+import { AppContext } from "../app/App";
 
 export interface AddTodoProps {
   clickHandler: () => void;
+  lid: string;
 }
 
-export const AddTodo: React.FC<AddTodoProps> = ({ clickHandler }) => {
+export const AddTodo: React.FC<AddTodoProps> = ({ clickHandler, lid }) => {
   const [title, setTitle] = useState("");
+  const { addTodo } = useContext(AppContext);
 
   const handleClick = () => {
     if (title.trim().length) {
@@ -18,9 +21,11 @@ export const AddTodo: React.FC<AddTodoProps> = ({ clickHandler }) => {
         title,
         id: uuidv4(),
         completed: false,
-        folderId: "",
+        listId: lid,
       };
-      console.log(todo);
+      if (addTodo) {
+        addTodo(todo, lid);
+      }
       setTitle("");
       clickHandler();
     }
