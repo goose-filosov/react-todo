@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import "./AddTodo.scss";
 import { Button } from "components/button";
 import { Field } from "components/field";
-import { AppContext } from "../app/App";
+import { AppContext } from "components/app-provider";
 
 export interface AddTodoProps {
   clickHandler: () => void;

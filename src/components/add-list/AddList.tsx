@@ -7,7 +7,7 @@ import { Button } from "components/button";
 import { Mark } from "components/mark";
 import { Field } from "components/field";
 import { MarkProps } from "components/mark/Mark";
-import { AppContext } from "../app/App";
+import { AppContext } from "components/app-provider";
 
 const marks = [
   {

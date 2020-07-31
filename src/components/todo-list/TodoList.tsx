@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { useParams } from "react-router-dom";
 
 import "./TodoList.scss";
 
@@ -8,7 +7,7 @@ import { ITodo } from "components/todo/Todo";
 import { IList } from "components/list/List";
 import { Button } from "components/button";
 import { AddTodo } from "components/add-todo";
-import { AppContext } from "../app/App";
+import { AppContext } from "components/app-provider";
 
 interface TodoListProps {
   list: IList;
