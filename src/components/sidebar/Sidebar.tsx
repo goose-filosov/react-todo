@@ -5,7 +5,7 @@ import { Lists } from "components/lists";
 import { List } from "components/list";
 import { Button } from "components/button";
 import { AddList } from "components/add-list";
-import { AppContext } from "components/app/App";
+import { AppContext } from "components/app-provider";
 
 export const Sidebar = () => {
   const [modal, setModal] = useState(false);

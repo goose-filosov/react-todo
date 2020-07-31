@@ -5,7 +5,7 @@ import { List } from "components/list";
 import { Mark } from "components/mark";
 import { Button } from "components/button";
 import { IList } from "components/list/List";
-import { AppContext } from "../app/App";
+import { AppContext } from "components/app-provider";
 
 interface ListsProps {
   lists: IList[];

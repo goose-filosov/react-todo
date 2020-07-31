@@ -1,7 +1,14 @@
 .main {
   background-color: #fff;
   flex: 1;
+  overflow-y: scroll;
   &__wrapper {
-    padding: 60px 55px 0;
+    padding: 45px 55px 0;
+  }
+  &__list {
+    margin: -2.5rem 0;
+  }
+  &__item {
+    margin: 2.5rem 0;
   }
 }

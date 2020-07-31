@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 
 import "./Main.scss";
 import { TodoList } from "components/todo-list";
-import { AppContext } from "components/app/App";
+import { AppContext } from "components/app-provider";
 
 export const Main = () => {
   const { lists, activeList } = useContext(AppContext);
@@ -11,12 +11,16 @@ export const Main = () => {
   return (
     <div className="main">
       <div className="main__wrapper">
-        <Route exact path="/">
-          {lists &&
-            lists.map((list) => {
-              return <TodoList key={list.id} list={list} />;
-            })}
-        </Route>
+        <div className="main__list">
+          <Route exact path="/">
+            {lists &&
+              lists.map((list) => (
+                <div className="main__item" key={list.id}>
+                  <TodoList list={list} />
+                </div>
+              ))}
+          </Route>
+        </div>
         <Route path="/lists/:id">
           <TodoList list={activeList!} />
         </Route>
